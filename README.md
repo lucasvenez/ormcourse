@@ -14,4 +14,4 @@ seguintes características:
 - Cada produto pertence a uma categoria.
 
 
-![Modelo de Registro de Vendas](https://raw.githubusercontent.com/lucasvenez/class-orm/master/images/order-model.png)
+-> ![Modelo de Registro de Vendas](https://raw.githubusercontent.com/lucasvenez/class-orm/master/images/order-model.png) <-
