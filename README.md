@@ -1,3 +1,3 @@
 # Introdução ao Mapeamento Objeto-Relacional
 
-Autor: Lucas Venezian Povoa <-
+<p style="text-align: right;">Autor: Lucas Venezian Povoa</p>
