@@ -9,6 +9,6 @@ Considere o modelo abaixo que descreve os dados de um sistema de Gerenciamento d
 a abordagem <a href="https://en.wikipedia.org/wiki/Scrum_(software_development)">Scrum</a>.
 
 <figure>
-	<img src="https://raw.githubusercontent.com/lucasvenez/class-orm/master/images/scrum-project-management-model.png"/>
+	<img src="http://raw.githubusercontent.com/lucasvenez/class-orm/master/images/scrum-project-management-model.png"/>
 	<legend>Modelo Lógico de Dados para Gerenciamento de Projetos Utilizando Scrum</legend>
 </figure>
