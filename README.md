@@ -8,7 +8,5 @@ para representar modelos de dados definido com o Modelo Relacional em um Modelo 
 Considere o modelo abaixo que descreve os dados de um sistema de Gerenciamento de Projetos utilizando 
 a abordagem <a href="https://en.wikipedia.org/wiki/Scrum_(software_development)">Scrum</a>.
 
-<figure>
-	<img src="http://raw.githubusercontent.com/lucasvenez/class-orm/master/images/scrum-project-management-model.png"/>
-	<legend>Modelo Lógico de Dados para Gerenciamento de Projetos Utilizando Scrum</legend>
-</figure>
+
+![Modelo Lógico de Dados para Gerenciamento de Projetos Utilizando Scrum](http://raw.githubusercontent.com/lucasvenez/class-orm/master/images/scrum-project-management-model.png)
