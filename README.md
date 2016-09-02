@@ -25,13 +25,12 @@ seguintes características:
 - Uma venda pode conter um ou vários produtos;
 - Cada produto pertence a uma categoria.
 
--> ![Modelo de Registro de Vendas](https://raw.githubusercontent.com/lucasvenez/class-orm/master/images/order-model.png) <-
+![Modelo de Registro de Vendas](https://raw.githubusercontent.com/lucasvenez/class-orm/master/images/order-model.png) 
 
 O Modelo Orientado a Objetos correspondente é ilustratado abaixo utilizando o Diagrama de Classes da linguagem <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML</a>.
 
-<center>
+
 ![Modelo de Registro de Vendas](https://raw.githubusercontent.com/lucasvenez/class-orm/master/images/order-uml.png)
-</center>
 
 Note que existem algumas diferenças que são muito importantes no que se refere à semântica. Por exemplo, uma pessoa 
 realiza nenhuma ou várias compras, sendo que no Modelo Relacional a informação de qual compra pertence a qual pessoa fica contida somente na 
