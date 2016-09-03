@@ -30,4 +30,10 @@ public class ProductDAO extends DAO<Product> {
         
         return result;
     }
+ 
+    public List<Product> findAll() {
+    
+    	return entityManager
+    		.createQuery("FROM Product").getResultList();
+    }
 }

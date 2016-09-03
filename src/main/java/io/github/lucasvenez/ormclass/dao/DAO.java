@@ -27,10 +27,7 @@ public abstract class DAO<E> {
     }
  
     @SuppressWarnings("unchecked")
-    public List<E> findAll() {
-        return entityManager
-        		.createQuery("FROM Computer").getResultList();
-    }
+    public List<E> findAll();
  
     public boolean persist(E object) {
     	
