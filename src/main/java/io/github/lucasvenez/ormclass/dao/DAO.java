@@ -26,8 +26,7 @@ public abstract class DAO<E> {
         return entityManager;
     }
  
-    @SuppressWarnings("unchecked")
-    public List<E> findAll();
+    public abstract List<E> findAll();
  
     public boolean persist(E object) {
     	

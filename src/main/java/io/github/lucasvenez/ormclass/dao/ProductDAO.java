@@ -10,12 +10,6 @@ public class ProductDAO extends DAO<Product> {
         return entityManager.find(Product.class, id);
     }
  
-    @SuppressWarnings("unchecked")
-    public List<Product> findAll() {
-        return entityManager
-        		.createQuery("FROM Computer").getResultList();
-    }
- 
     public boolean removeById(final Long id) {
     	
     	boolean result = true;
@@ -31,8 +25,8 @@ public class ProductDAO extends DAO<Product> {
         return result;
     }
  
-    public List<Product> findAll() {
-    
+    @SuppressWarnings("unchecked")
+	public List<Product> findAll() {
     	return entityManager
     		.createQuery("FROM Product").getResultList();
     }
