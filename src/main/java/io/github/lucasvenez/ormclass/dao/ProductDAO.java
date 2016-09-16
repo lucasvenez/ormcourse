@@ -15,8 +15,8 @@ public class ProductDAO extends DAO<Product> {
     	boolean result = true;
     	
         try {
-            Product product = getById(id);
-            remove(product);
+            Product product = this.getById(id);
+            super.remove(product);
         } catch (Exception ex) {
             ex.printStackTrace();
             result = false;

@@ -1,19 +1,34 @@
 package io.github.lucasvenez.ormclass.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class OrderItem {
 
-	private Order orider;
-	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="idOrder", nullable = false)
+	private Order order;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinColumn(name="idProduct", nullable = false)
 	private Product product;
-	
+
+	@Column
 	private Integer quantity;
 
-	public Order getOrider() {
-		return orider;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setOrider(Order orider) {
-		this.orider = orider;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public Product getProduct() {
