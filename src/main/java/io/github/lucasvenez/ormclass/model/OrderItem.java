@@ -4,6 +4,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,12 +13,14 @@ import javax.persistence.Table;
 @Table
 public class OrderItem {
 
+	@Id
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="idOrder", nullable = false)
+	@JoinColumn(name = "idOrder", referencedColumnName="idOrder")
 	private Order order;
 
+	@Id
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name="idProduct", nullable = false)
+	@JoinColumn(name = "idProduct", referencedColumnName="idProduct")
 	private Product product;
 
 	@Column

@@ -28,7 +28,7 @@ public class State {
 
 	@OneToMany(
 		cascade = CascadeType.ALL,
-		mappedBy = "city",
+		mappedBy = "state",
 		targetEntity = City.class,
 		fetch = FetchType.LAZY)
 	private final List<City> cities = new ArrayList<City>();

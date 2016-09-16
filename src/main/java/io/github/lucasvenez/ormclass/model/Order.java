@@ -32,7 +32,7 @@ public class Order {
 
 	@OneToMany(
 			mappedBy = "order", 
-			targetEntity = Order.class, 
+			targetEntity = OrderItem.class, 
 			fetch = FetchType.LAZY, 
 			cascade = CascadeType.ALL)
 	private final List<OrderItem> orderItems = new ArrayList<OrderItem>();
