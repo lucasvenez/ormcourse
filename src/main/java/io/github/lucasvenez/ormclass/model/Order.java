@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,11 +32,11 @@ public class Order implements Serializable {
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date orderDate;
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
-	private Date time;
+	private Date orderTime;
 
 	@OneToMany(
 			mappedBy = "order", 
@@ -42,6 +44,18 @@ public class Order implements Serializable {
 			fetch = FetchType.LAZY, 
 			cascade = CascadeType.ALL)
 	private final List<OrderItem> orderItems = new ArrayList<OrderItem>();
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idPerson")
+	private Person person;
+	
+	public Person getPerson() {
+		return person;
+	}
+	
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
 	public Integer getIdOrder() {
 		return idOrder;
@@ -52,19 +66,19 @@ public class Order implements Serializable {
 	}
 
 	public Date getDate() {
-		return date;
+		return orderDate;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.orderDate = date;
 	}
 
 	public Date getTime() {
-		return time;
+		return orderTime;
 	}
 
 	public void setTime(Date time) {
-		this.time = time;
+		this.orderTime = time;
 	}
 
 	public List<OrderItem> getOrderItems() {

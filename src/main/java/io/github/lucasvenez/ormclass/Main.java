@@ -2,13 +2,14 @@ package io.github.lucasvenez.ormclass;
 
 import io.github.lucasvenez.ormclass.dao.ProductDAO;
 import io.github.lucasvenez.ormclass.model.Category;
+import io.github.lucasvenez.ormclass.model.Person;
 import io.github.lucasvenez.ormclass.model.Product;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		ProductDAO dao = new ProductDAO();
+		/*ProductDAO dao = new ProductDAO();
 		
 		Category category = new Category();
 		
@@ -22,7 +23,13 @@ public class Main {
 		
 		product.setPrice(12.50);
 		
-		dao.persist(product);
+		dao.persist(product);*/
+		
+		//Pessoas, vendas, produtos e item venda!!! Dar pull request para o prof no github
+		//Dar persist só no OrderDAO já dá persiste nas outras.
+		Person person = new Person();
+		
+		
 	}
 
 }

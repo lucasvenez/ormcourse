@@ -43,7 +43,7 @@ public class Person implements Serializable {
 
 	@OneToMany(
 		mappedBy = "person", 
-		targetEntity = Person.class, 
+		targetEntity = Order.class, 
 		fetch = FetchType.LAZY, 
 		cascade = CascadeType.ALL)
 	private final List<Order> orders = new ArrayList<Order>();
