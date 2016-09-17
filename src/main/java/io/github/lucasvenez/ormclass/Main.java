@@ -27,6 +27,8 @@ public class Main {
 		
 		//Pessoas, vendas, produtos e item venda!!! Dar pull request para o prof no github
 		//Dar persist só no OrderDAO já dá persiste nas outras.
+		//Mudar usuário: Window -> Preferences -> Buscar "git" -> Configuration -> Add entry -> user.name value minska13 ->
+		//Add entry user.email yasmin.sayad@gmail.com -> Aplly
 		Person person = new Person();
 		
 		
