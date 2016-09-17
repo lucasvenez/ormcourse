@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -43,8 +45,20 @@ public class Order implements Serializable {
 			cascade = CascadeType.ALL)
 	private final List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "idPerson", nullable = false)
+	private Person person;
+
 	public Integer getIdOrder() {
 		return idOrder;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 	public void setIdOrder(Integer idOrder) {
@@ -75,7 +89,4 @@ public class Order implements Serializable {
 		orderItem.setOrder(this);
 		this.orderItems.add(orderItem);
 	}
-	
-	
-	
 }
