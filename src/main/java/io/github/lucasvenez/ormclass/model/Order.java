@@ -32,11 +32,11 @@ public class Order implements Serializable {
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private Date orderDate;
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIME)
-	private Date time;
+	private Date orderTime;
 
 	@OneToMany(
 			mappedBy = "order", 
@@ -65,20 +65,20 @@ public class Order implements Serializable {
 		this.idOrder = idOrder;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getOrderDate() {
+		return orderDate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setOrderDate(Date date) {
+		this.orderDate = date;
 	}
 
-	public Date getTime() {
-		return time;
+	public Date getOrderTime() {
+		return orderTime;
 	}
 
-	public void setTime(Date time) {
-		this.time = time;
+	public void setOrderTime(Date time) {
+		this.orderTime = time;
 	}
 
 	public List<OrderItem> getOrderItems() {
