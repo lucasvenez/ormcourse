@@ -9,6 +9,8 @@ public class Main {
 		Person person = new Person();
 		
 		person.getBirthdate();
+		
+		person.getCity();
 	}
 
 }
