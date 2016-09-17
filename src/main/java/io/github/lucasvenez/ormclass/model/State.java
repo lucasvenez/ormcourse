@@ -1,5 +1,6 @@
 package io.github.lucasvenez.ormclass.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class State {
+public class State implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5568640712434775294L;
 
 	@Id
 	@Column

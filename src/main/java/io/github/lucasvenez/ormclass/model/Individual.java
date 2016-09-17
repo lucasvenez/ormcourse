@@ -1,5 +1,7 @@
 package io.github.lucasvenez.ormclass.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,8 +13,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table
-public class Individual extends Person {
+public class Individual extends Person implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1509997359858778543L;
+	
 	@Column
 	private String individualDocument;
 

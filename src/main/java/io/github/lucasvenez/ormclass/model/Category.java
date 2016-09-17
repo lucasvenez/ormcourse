@@ -1,5 +1,6 @@
 package io.github.lucasvenez.ormclass.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Category {
+public class Category implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8828537561369513397L;
 
 	@Id
 	@GeneratedValue

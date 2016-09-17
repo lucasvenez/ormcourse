@@ -1,5 +1,7 @@
 package io.github.lucasvenez.ormclass.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +13,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class OrderItem {
+public class OrderItem implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8649028181564316740L;
 
 	@Id
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)

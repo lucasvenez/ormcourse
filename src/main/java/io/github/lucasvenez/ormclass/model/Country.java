@@ -25,7 +25,7 @@ public class Country {
 	private String name;
 	
 	@OneToMany(
-		mappedBy = "state",
+		mappedBy = "country",
 		fetch = FetchType.LAZY,
 		targetEntity = State.class,
 		cascade = CascadeType.ALL)

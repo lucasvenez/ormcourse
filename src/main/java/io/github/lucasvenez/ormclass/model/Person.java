@@ -1,5 +1,6 @@
 package io.github.lucasvenez.ormclass.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,23 +20,32 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Person {
+public class Person implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3183341000677128362L;
 
 	@Id
 	private Integer idPerson;
-	
+
 	@Column
 	private String fullname;
-	
+
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date birthdate;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="idCity", nullable = false)
+	@JoinColumn(name = "idCity", nullable = false)
 	private City city;
-	
-	@OneToMany
+
+	@OneToMany(
+		mappedBy = "person", 
+		targetEntity = Person.class, 
+		fetch = FetchType.LAZY, 
+		cascade = CascadeType.ALL)
 	private final List<Order> orders = new ArrayList<Order>();
 
 	public Integer getIdPerson() {
@@ -73,7 +83,7 @@ public class Person {
 	public List<Order> getOrders() {
 		return orders;
 	}
-	
+
 	public void addOrder(Order order) {
 		this.orders.add(order);
 	}

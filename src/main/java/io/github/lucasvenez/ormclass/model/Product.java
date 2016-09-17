@@ -1,5 +1,7 @@
 package io.github.lucasvenez.ormclass.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +14,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Product {
+public class Product implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3240983089242859803L;
 
 	@Id
 	@GeneratedValue
