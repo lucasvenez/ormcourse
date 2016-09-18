@@ -65,19 +65,19 @@ public class Order implements Serializable {
 		this.idOrder = idOrder;
 	}
 
-	public Date getDate() {
+	public Date getOrderDate() {
 		return orderDate;
 	}
 
-	public void setDate(Date date) {
+	public void setOrderDate(Date date) {
 		this.orderDate = date;
 	}
 
-	public Date getTime() {
+	public Date getOrderTime() {
 		return orderTime;
 	}
 
-	public void setTime(Date time) {
+	public void setOrderTime(Date time) {
 		this.orderTime = time;
 	}
 
