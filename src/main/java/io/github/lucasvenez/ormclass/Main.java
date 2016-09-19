@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import io.github.lucasvenez.ormclass.dao.CityDAO;
 import io.github.lucasvenez.ormclass.dao.OrderDAO;
 import io.github.lucasvenez.ormclass.model.Category;
 import io.github.lucasvenez.ormclass.model.City;
@@ -17,7 +18,8 @@ import io.github.lucasvenez.ormclass.model.State;
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
-		/*Professor, esse código não funcionou e não consegui achar meu erro.*/
+		CityDAO daoCity = new CityDAO();
+		
 		Country country = new Country();
 		
 		State state = new State();
@@ -30,7 +32,15 @@ public class Main {
 		
 		city.setName("Caraguatatuba");
 		
+		country.addState(state);
+		
+		state.addCity(city);
+		
+		state.setCountry(country);
+		
 		city.setState(state);
+		
+		daoCity.persist(city);
 		
 		/**************************************************************/
 		
