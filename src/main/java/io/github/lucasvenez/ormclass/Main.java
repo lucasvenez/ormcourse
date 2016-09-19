@@ -1,5 +1,9 @@
 package io.github.lucasvenez.ormclass;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import io.github.lucasvenez.ormclass.dao.OrderDAO;
 import io.github.lucasvenez.ormclass.dao.ProductDAO;
 import io.github.lucasvenez.ormclass.model.Category;
@@ -13,7 +17,7 @@ import io.github.lucasvenez.ormclass.model.State;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		/*ProductDAO dao = new ProductDAO();
 		
@@ -69,7 +73,9 @@ public class Main {
 		
 		person.setCity(city);
 		
-		person.setBirthdate(?);
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+		Date d1 = sdf.parse("17/11/1991");
+		person.setBirthdate(d1);
 		
 		category1.setName("Alimentos");
 		category2.setName("Bedidas");
@@ -87,9 +93,12 @@ public class Main {
 		product2.setPrice(5.79);
 		product3.setPrice(7.50);
 		
-		order.setOrderDate(?);
+		Date d2 = sdf.parse("18/09/2016");
+		order.setOrderDate(d2);
 		
-		order.setOrderTime(?);
+		SimpleDateFormat ft = new SimpleDateFormat ("hh:mm:ss");
+		Date t1 = ft.parse("13:27:40");
+		order.setOrderTime(t1);
 		
 		order.setPerson(person);
 		
