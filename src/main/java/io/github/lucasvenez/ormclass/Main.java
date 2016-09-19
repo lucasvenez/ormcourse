@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.github.lucasvenez.ormclass.dao.OrderDAO;
-import io.github.lucasvenez.ormclass.dao.ProductDAO;
 import io.github.lucasvenez.ormclass.model.Category;
 import io.github.lucasvenez.ormclass.model.City;
 import io.github.lucasvenez.ormclass.model.Country;
@@ -18,23 +17,7 @@ import io.github.lucasvenez.ormclass.model.State;
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
-		
-		/*ProductDAO dao = new ProductDAO();
-		
-		Category category = new Category();
-		
-		category.setName("C1");
-		
-		Product product = new Product();
-		
-		product.setCategory(category);
-		
-		product.setPrice(12.50);
-		
-		dao.persist(product);*/
-		
-		//Pessoas, vendas, produtos e item venda!!! Dar pull request para o prof no github
-		//Dar persist só no OrderDAO já dá persiste nas outras.
+		/*Professor, esse código não funcionou e não consegui achar meu erro.*/
 		Country country = new Country();
 		
 		State state = new State();
@@ -102,8 +85,6 @@ public class Main {
 		
 		order.setPerson(person);
 		
-		order.setOrderTime(null);
-		
 		orderItem1.setOrder(order);
 		orderItem2.setOrder(order);
 		orderItem3.setOrder(order);
@@ -117,8 +98,6 @@ public class Main {
 		orderItem3.setQuantity(3);
 		
 		dao.persist(order);
-		
-		
 	}
 
 }
