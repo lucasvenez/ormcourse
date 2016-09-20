@@ -22,8 +22,8 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 3240983089242859803L;
 
 	@Id
-	@GeneratedValue
 	@Column
+	@GeneratedValue
 	private Integer idProduct;
 	
 	@Column
