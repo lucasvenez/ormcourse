@@ -65,6 +65,7 @@ public class Order implements Serializable {
 	}
 
 	public void setPerson(Person person) {
+		person.addOrder(this);
 		this.person = person;
 	}
 
