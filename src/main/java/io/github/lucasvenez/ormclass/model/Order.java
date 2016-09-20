@@ -51,6 +51,11 @@ public class Order implements Serializable {
 	@JoinColumn(name = "idPerson", nullable = false)
 	private Person person;
 
+	public Order(Date date, Date time) {
+		this.date = date;
+		this.time = time;
+	}
+
 	public Integer getIdOrder() {
 		return idOrder;
 	}
@@ -67,11 +72,11 @@ public class Order implements Serializable {
 		this.idOrder = idOrder;
 	}
 
-	public Date getOrderDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setOrderDate(Date date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -87,8 +92,13 @@ public class Order implements Serializable {
 		return orderItems;
 	}
 
-	public void addOrderItems(OrderItem orderItem) {
+	public void addOrderItem(OrderItem orderItem) {
 		orderItem.setOrder(this);
 		this.orderItems.add(orderItem);
+	}
+	
+	public void addOrderItems(OrderItem ... orderItems) {
+		for (OrderItem oi : orderItems)
+			this.addOrderItem(oi);
 	}
 }

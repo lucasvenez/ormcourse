@@ -36,6 +36,13 @@ public class Product implements Serializable {
 	@JoinColumn(name="idCategory", nullable = false)
 	private Category category;
 
+	public Product(String name, Category category) {
+		this.name = name;
+		this.category = category;
+		category.addProduct(this);
+		
+	}
+
 	public Integer getIdProduct() {
 		return idProduct;
 	}
@@ -65,6 +72,7 @@ public class Product implements Serializable {
 	}
 
 	public void setCategory(Category category) {
+		category.addProduct(this);
 		this.category = category;
 	}
 }
