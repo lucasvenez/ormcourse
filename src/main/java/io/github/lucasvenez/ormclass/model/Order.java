@@ -14,10 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name = "`Order`")
 public class Order implements Serializable {
 
 	/**
@@ -30,13 +32,13 @@ public class Order implements Serializable {
 	@GeneratedValue
 	private Integer idOrder;
 	
-	@Column(nullable = false)
+	@Column(name = "`date`", nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date orderDate;
+	private Date date;
 	
-	@Column(nullable = false)
+	@Column(name = "`time`", nullable = false)
 	@Temporal(TemporalType.TIME)
-	private Date orderTime;
+	private Date time;
 
 	@OneToMany(
 			mappedBy = "order", 
@@ -66,19 +68,19 @@ public class Order implements Serializable {
 	}
 
 	public Date getOrderDate() {
-		return orderDate;
+		return date;
 	}
 
 	public void setOrderDate(Date date) {
-		this.orderDate = date;
+		this.date = date;
 	}
 
-	public Date getOrderTime() {
-		return orderTime;
+	public Date getTime() {
+		return this.time;
 	}
 
-	public void setOrderTime(Date time) {
-		this.orderTime = time;
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public List<OrderItem> getOrderItems() {
