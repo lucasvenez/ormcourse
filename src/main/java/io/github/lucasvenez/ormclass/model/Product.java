@@ -36,8 +36,9 @@ public class Product implements Serializable {
 	@JoinColumn(name="idCategory", nullable = false)
 	private Category category;
 
-	public Product(String name, Category category) {
+	public Product(String name, Double price, Category category) {
 		this.name = name;
+		this.price = price;
 		this.category = category;
 		category.addProduct(this);
 		
