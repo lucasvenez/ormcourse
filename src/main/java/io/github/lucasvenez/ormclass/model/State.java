@@ -27,7 +27,7 @@ public class State implements Serializable {
 	@Id
 	@Column
 	@GeneratedValue
-	private String idState;
+	private Integer idState;
 	
 	@Column
 	private String name;
@@ -48,11 +48,11 @@ public class State implements Serializable {
 		this.setCountry(country);
 	}
 
-	public String getIdState() {
+	public Integer getIdState() {
 		return idState;
 	}
 
-	public void setIdState(String idState) {
+	public void setIdState(Integer idState) {
 		this.idState = idState;
 	}
 
