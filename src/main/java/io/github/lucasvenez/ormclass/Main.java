@@ -48,9 +48,9 @@ public class Main {
 		
 		Person person = new Person();
 		
-		Category category1 = new Category();
-		Category category2 = new Category();
-		Category category3 = new Category();
+		Category category1 = new Category("Alimentos");
+		Category category2 = new Category("Bedidas");
+		Category category3 = new Category("Cigarros");
 		
 		Product product1 = new Product();
 		Product product2 = new Product();
@@ -69,11 +69,7 @@ public class Main {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
 		Date d1 = sdf.parse("17/11/1991");
 		person.setBirthdate(d1);
-		
-		category1.setName("Alimentos");
-		category2.setName("Bedidas");
-		category3.setName("Cigarros");
-		
+				
 		product1.setName("Pão de queijo");
 		product2.setName("Coca-cola");
 		product3.setName("Hollywood Azul Box");

@@ -14,10 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name = "`Order`")
 public class Order implements Serializable {
 
 	/**
@@ -30,13 +32,13 @@ public class Order implements Serializable {
 	@GeneratedValue
 	private Integer idOrder;
 	
-	@Column(nullable = false)
+	@Column(name = "`date`", nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date orderDate;
+	private Date date;
 	
-	@Column(nullable = false)
+	@Column(name = "`time`", nullable = false)
 	@Temporal(TemporalType.TIME)
-	private Date orderTime;
+	private Date time;
 
 	@OneToMany(
 			mappedBy = "order", 
@@ -44,52 +46,60 @@ public class Order implements Serializable {
 			fetch = FetchType.LAZY, 
 			cascade = CascadeType.ALL)
 	private final List<OrderItem> orderItems = new ArrayList<OrderItem>();
-	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "idPerson")
+	@JoinColumn(name = "idPerson", nullable = false)
 	private Person person;
-	
-	public Person getPerson() {
-		return person;
-	}
-	
-	public void setPerson(Person person) {
-		this.person = person;
+
+	public Order(Date date, Date time) {
+		this.date = date;
+		this.time = time;
 	}
 
 	public Integer getIdOrder() {
 		return idOrder;
 	}
 
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		person.addOrder(this);
+		this.person = person;
+	}
+
 	public void setIdOrder(Integer idOrder) {
 		this.idOrder = idOrder;
 	}
 
-	public Date getOrderDate() {
-		return orderDate;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setOrderDate(Date date) {
-		this.orderDate = date;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public Date getOrderTime() {
-		return orderTime;
+	public Date getTime() {
+		return this.time;
 	}
 
-	public void setOrderTime(Date time) {
-		this.orderTime = time;
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}
 
-	public void addOrderItems(OrderItem orderItem) {
+	public void addOrderItem(OrderItem orderItem) {
 		orderItem.setOrder(this);
 		this.orderItems.add(orderItem);
 	}
 	
-	
-	
+	public void addOrderItems(OrderItem ... orderItems) {
+		for (OrderItem oi : orderItems)
+			this.addOrderItem(oi);
+	}
 }

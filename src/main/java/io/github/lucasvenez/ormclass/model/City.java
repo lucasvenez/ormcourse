@@ -33,6 +33,11 @@ public class City implements Serializable {
 	@JoinColumn(name="idState", nullable = false)
 	private State state;
 
+	public City(String name, State state) {
+		this.name = name;
+		this.setState(state);
+	}
+
 	public Integer getIdCity() {
 		return idCity;
 	}
@@ -54,6 +59,7 @@ public class City implements Serializable {
 	}
 
 	public void setState(State state) {
+		state.addCity(this);
 		this.state = state;
 	}
 }

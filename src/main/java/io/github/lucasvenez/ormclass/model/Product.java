@@ -22,8 +22,8 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 3240983089242859803L;
 
 	@Id
-	@GeneratedValue
 	@Column
+	@GeneratedValue
 	private Integer idProduct;
 	
 	@Column
@@ -32,9 +32,17 @@ public class Product implements Serializable {
 	@Column
 	private Double price;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="idCategory", nullable = false)
 	private Category category;
+
+	public Product(String name, Double price, Category category) {
+		this.name = name;
+		this.price = price;
+		this.category = category;
+		category.addProduct(this);
+		
+	}
 
 	public Integer getIdProduct() {
 		return idProduct;
@@ -65,6 +73,7 @@ public class Product implements Serializable {
 	}
 
 	public void setCategory(Category category) {
+		category.addProduct(this);
 		this.category = category;
 	}
 }

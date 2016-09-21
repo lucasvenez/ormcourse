@@ -23,8 +23,8 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 8828537561369513397L;
 
 	@Id
-	@GeneratedValue
 	@Column
+	@GeneratedValue
 	private Integer idCategory;
 	
 	@Column
@@ -36,6 +36,10 @@ public class Category implements Serializable {
 			fetch = FetchType.LAZY, 
 			cascade = CascadeType.ALL)
 	private final List<Product> products = new ArrayList<Product>();
+
+	public Category(String name) {
+		this.name = name;
+	}
 
 	public Integer getIdCategory() {
 		return idCategory;
