@@ -26,7 +26,6 @@ public class State implements Serializable {
 
 	@Id
 	@Column
-	@GeneratedValue
 	private String idState;
 	
 	@Column
