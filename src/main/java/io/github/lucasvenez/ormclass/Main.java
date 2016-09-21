@@ -20,25 +20,11 @@ public class Main {
 	public static void main(String[] args) throws ParseException {
 		CityDAO daoCity = new CityDAO();
 		
-		Country country = new Country();
+		Country country = new Country("Brasil");
 		
-		State state = new State();
+		State state = new State("São Paulo", country);
 		
-		City city = new City();
-		
-		country.setName("Brasil");
-		
-		state.setName("São Paulo");
-		
-		city.setName("Caraguatatuba");
-		
-		country.addState(state);
-		
-		state.addCity(city);
-		
-		state.setCountry(country);
-		
-		city.setState(state);
+		City city = new City("Caraguatatuba", state);
 		
 		daoCity.persist(city);
 		
@@ -48,60 +34,34 @@ public class Main {
 		
 		Person person = new Person();
 		
-		Category category1 = new Category("Alimentos");
-		Category category2 = new Category("Bedidas");
-		Category category3 = new Category("Cigarros");
-		
-		Product product1 = new Product();
-		Product product2 = new Product();
-		Product product3 = new Product();
-		
-		Order order = new Order();
-		
-		OrderItem orderItem1 = new OrderItem();
-		OrderItem orderItem2 = new OrderItem();
-		OrderItem orderItem3 = new OrderItem();
-	
 		person.setFullname("Yasmin Sayad Yoshizumi");
 		
 		person.setCity(city);
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); 
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date d1 = sdf.parse("17/11/1991");
 		person.setBirthdate(d1);
-				
-		product1.setName("Pão de queijo");
-		product2.setName("Coca-cola");
-		product3.setName("Hollywood Azul Box");
 		
-		product1.setCategory(category1);
-		product2.setCategory(category2);
-		product3.setCategory(category3);
+		Category category1 = new Category("Alimentos");
+		Category category2 = new Category("Bedidas");
+		Category category3 = new Category("Cigarros");
 		
-		product1.setPrice(8.45);
-		product2.setPrice(5.79);
-		product3.setPrice(7.50);
+		Product product1 = new Product("Pão de queijo", 8.45, category1);
+		Product product2 = new Product("Coca-cola", 5.79, category2);
+		Product product3 = new Product("Hollywood Azul Box", 7.50, category3);
 		
 		Date d2 = sdf.parse("18/09/2016");
-		order.setOrderDate(d2);
 		
 		SimpleDateFormat ft = new SimpleDateFormat ("hh:mm:ss");
 		Date t1 = ft.parse("13:27:40");
-		order.setOrderTime(t1);
+		
+		Order order = new Order(d2, t1);
+		
+		OrderItem orderItem1 = new OrderItem(order, product1, 2);
+		OrderItem orderItem2 = new OrderItem(order, product2, 1);
+		OrderItem orderItem3 = new OrderItem(order, product3, 3);
 		
 		order.setPerson(person);
-		
-		orderItem1.setOrder(order);
-		orderItem2.setOrder(order);
-		orderItem3.setOrder(order);
-		
-		orderItem1.setProduct(product1);
-		orderItem2.setProduct(product2);
-		orderItem3.setProduct(product3);
-		
-		orderItem1.setQuantity(2);
-		orderItem2.setQuantity(1);
-		orderItem3.setQuantity(3);
 		
 		dao.persist(order);
 	}
