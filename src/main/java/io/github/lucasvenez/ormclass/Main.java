@@ -12,6 +12,8 @@ public class Main {
 		
 		Category category = new Category();
 		
+		person.getFullname();
+		
 		category.setName("C1");
 		
 		Product product = new Product();
