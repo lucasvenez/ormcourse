@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import io.github.lucasvenez.ormclass.dao.CityDAO;
 import io.github.lucasvenez.ormclass.dao.OrderDAO;
 import io.github.lucasvenez.ormclass.model.Category;
 import io.github.lucasvenez.ormclass.model.City;
@@ -18,15 +17,12 @@ import io.github.lucasvenez.ormclass.model.State;
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
-		CityDAO daoCity = new CityDAO();
 		
 		Country country = new Country("Brasil");
 		
 		State state = new State("São Paulo", country);
 		
 		City city = new City("Caraguatatuba", state);
-		
-		daoCity.persist(city);
 		
 		/**************************************************************/
 		
