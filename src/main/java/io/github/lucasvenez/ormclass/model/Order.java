@@ -55,6 +55,12 @@ public class Order implements Serializable {
 		this.date = date;
 		this.time = time;
 	}
+	
+	public Order(Date date, Date time, Person person) {
+		this.date = date;
+		this.time = time;
+		setPerson(person);
+	}
 
 	public Integer getIdOrder() {
 		return idOrder;
