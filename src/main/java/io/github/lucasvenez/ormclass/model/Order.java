@@ -50,6 +50,10 @@ public class Order implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idPerson", nullable = false)
 	private Person person;
+	
+	public Order(){
+		
+	}
 
 	public Order(Date date, Date time) {
 		this.date = date;
