@@ -50,6 +50,10 @@ public class Person implements Serializable {
 		fetch = FetchType.LAZY, 
 		cascade = CascadeType.ALL)
 	private final List<Order> orders = new ArrayList<Order>();
+	
+	public Person(String fullname){
+		this.fullname = fullname;
+	}
 
 	public Integer getIdPerson() {
 		return idPerson;
