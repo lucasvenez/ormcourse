@@ -40,8 +40,8 @@ public class Main {
 		OrderItem orderItem3= new OrderItem(order, produto3, 5);
 		
 		order.addOrderItem(orderItem1);
-		order.addOrderItem(orderItem1);
-		order.addOrderItem(orderItem1);
+		order.addOrderItem(orderItem2);
+		order.addOrderItem(orderItem3);
 		
 		OrderDAO orderDAO = new OrderDAO();
 		orderDAO.persist(order);
