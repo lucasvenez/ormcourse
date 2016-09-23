@@ -56,6 +56,10 @@ public class Order implements Serializable {
 		this.time = time;
 	}
 
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getIdOrder() {
 		return idOrder;
 	}
