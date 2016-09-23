@@ -19,7 +19,6 @@ public class Main {
 		Order order = new Order(new Date(), new Date(), person);
 		OrderItem oi = new OrderItem(order, prod, 1);
 		OrderDAO dao = new OrderDAO();
-		
 		dao.persist(order);
 	}
 
