@@ -10,9 +10,6 @@ import javax.persistence.Table;
 @Table
 public class Company extends Person implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 17975402783719860L;
 	
 	@Column

@@ -50,14 +50,10 @@ public class Order implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "idPerson", nullable = false)
 	private Person person;
-	
-	public Order(){
-		
-	}
 
-	public Order(Date date, Date time) {
-		this.date = date;
-		this.time = time;
+	public Order(Date date2, Date date3) {
+		this.date = date2;
+		this.time = date3;
 	}
 
 	public Integer getIdOrder() {
@@ -81,16 +77,16 @@ public class Order implements Serializable {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(Date localDate) {
+		this.date = localDate;
 	}
 
 	public Date getTime() {
 		return this.time;
 	}
 
-	public void setTime(Date time) {
-		this.time = time;
+	public void setTime(Date localTime) {
+		this.time = localTime;
 	}
 
 	public List<OrderItem> getOrderItems() {
@@ -98,7 +94,7 @@ public class Order implements Serializable {
 	}
 
 	public void addOrderItem(OrderItem orderItem) {
-		orderItem.setOrder(this);
+		/*orderItem.setOrder(this);*/
 		this.orderItems.add(orderItem);
 	}
 	

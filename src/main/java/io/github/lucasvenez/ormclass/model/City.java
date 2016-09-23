@@ -16,9 +16,6 @@ import javax.persistence.Table;
 @Table
 public class City implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5387835097313019330L;
 
 	@Id
