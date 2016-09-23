@@ -1,30 +1,34 @@
 package io.github.lucasvenez.ormclass;
 
-import io.github.lucasvenez.ormclass.dao.ProductDAO;
-import io.github.lucasvenez.ormclass.model.Category;
+import java.util.Date;
+
+import io.github.lucasvenez.ormclass.dao.OrderDAO;
+import io.github.lucasvenez.ormclass.model.Order;
 import io.github.lucasvenez.ormclass.model.Product;
 
 public class Main {
 
 	public static void main(String[] args) {
 		
-		ProductDAO dao = new ProductDAO();
+                Product product = new Product();
+                
+                product.getIdProduct();
 		
-		Category category = new Category();
+		product.getName();
 		
-		person.getFullname();
+		product.getPrice();
 		
-		category.setName("C1");
+		Order order = new Order();
 		
-		Product product = new Product();
+		order.setOrderDate(new Date());
 		
-		product.setCategory(category);
+		order.setOrderTime(new Date());
 		
-		product.setName("P1");
+		//..
+
+		OrderDAO dao = new OrderDAO();
 		
-		product.setPrice(12.50);
-		
-		dao.persist(product);
+		dao.persist(order);
 	}
 
 }
