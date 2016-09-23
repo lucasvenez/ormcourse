@@ -37,9 +37,11 @@ public abstract class DAO<E> {
             entityManager.persist(object);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
-        	System.out.println(ex.getMessage());
+        	System.out.println(ex.getCause().toString());
             entityManager.getTransaction().rollback();
             result = false;
+        } finally {
+        	entityManager.close();
         }
         
         return result;
