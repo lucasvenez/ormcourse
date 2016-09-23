@@ -39,6 +39,7 @@ public class Order implements Serializable {
 	@Column(name = "`time`", nullable = false)
 	@Temporal(TemporalType.TIME)
 	private Date time;
+	
 
 	@OneToMany(
 			mappedBy = "order", 
@@ -54,6 +55,10 @@ public class Order implements Serializable {
 	public Order(Date date, Date time) {
 		this.date = date;
 		this.time = time;
+	}
+
+	public Order() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getIdOrder() {
