@@ -1,11 +1,12 @@
 package io.github.lucasvenez.ormclass.dao;
 
-import io.github.lucasvenez.ormclass.model.Order;
-
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Query;
+
+import io.github.lucasvenez.ormclass.model.Order;
+import io.github.lucasvenez.ormclass.model.OrderItem;
 
 public class OrderDAO extends DAO<Order> {
 
@@ -41,13 +42,38 @@ public class OrderDAO extends DAO<Order> {
 		
 		Query query = 
 			entityManager.createQuery(
-				"FROM Product WHERE date BETWEEN :startDate AND :endDate");
+				"FROM Order o WHERE o.date BETWEEN :startDate AND :endDate");
 
 		query.setParameter("startDate", startIncluded);
 		
 		query.setParameter("endDate", endIncluded);
 		
 		return query.getResultList();
+	}
+	
+	@Override
+	public boolean persist(Order order) {
+		
+		boolean result = true;
+    	
+        try {
+        	
+            entityManager.getTransaction().begin();
+            
+            for (OrderItem oi : order.getOrderItems())
+            	entityManager.persist(oi.getProduct());
+            
+            entityManager.persist(order);
+            
+            entityManager.getTransaction().commit();
+            
+        } catch (Exception ex) {
+        	ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+            result = false;
+        }
+        
+        return result;
 	}
 
 }

@@ -51,6 +51,8 @@ public class Person implements Serializable {
 		cascade = CascadeType.ALL)
 	private final List<Order> orders = new ArrayList<Order>();
 
+	public Person() {}
+	
 	public Integer getIdPerson() {
 		return idPerson;
 	}

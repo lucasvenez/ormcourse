@@ -33,6 +33,8 @@ public class OrderItem implements Serializable {
 	@Column
 	private Integer quantity;
 
+	public OrderItem() {}
+	
 	public OrderItem(Order order, Product product, Integer quantity) {
 		this.order = order;
 		this.product = product;

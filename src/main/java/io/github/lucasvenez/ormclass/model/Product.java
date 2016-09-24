@@ -36,12 +36,17 @@ public class Product implements Serializable {
 	@JoinColumn(name="idCategory", nullable = false)
 	private Category category;
 
+	public Product() {}
+	
 	public Product(String name, Double price, Category category) {
-		this.name = name;
-		this.price = price;
-		this.category = category;
+		
 		category.addProduct(this);
 		
+		this.name = name;
+		
+		this.price = price;
+		
+		this.category = category;
 	}
 
 	public Integer getIdProduct() {
@@ -73,7 +78,9 @@ public class Product implements Serializable {
 	}
 
 	public void setCategory(Category category) {
+		
 		category.addProduct(this);
+		
 		this.category = category;
 	}
 }

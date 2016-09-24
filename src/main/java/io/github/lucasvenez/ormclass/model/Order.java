@@ -51,6 +51,8 @@ public class Order implements Serializable {
 	@JoinColumn(name = "idPerson", nullable = false)
 	private Person person;
 
+	public Order() {}
+	
 	public Order(Date date, Date time) {
 		this.date = date;
 		this.time = time;

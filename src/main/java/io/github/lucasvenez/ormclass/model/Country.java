@@ -31,6 +31,8 @@ public class Country {
 		cascade = CascadeType.ALL)
 	private final List<State> states = new ArrayList<State>();
 
+	public Country() {}
+	
 	public Country(String name) {
 		this.name = name;
 	}

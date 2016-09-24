@@ -23,6 +23,8 @@ public class Individual extends Person implements Serializable {
 	@Column
 	private String individualDocument;
 
+	public Individual() {}
+	
 	public String getIndividualDocument() {
 		return individualDocument;
 	}

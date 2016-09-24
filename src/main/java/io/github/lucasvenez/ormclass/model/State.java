@@ -43,6 +43,8 @@ public class State implements Serializable {
 	@JoinColumn(name = "idCountry", nullable = false)
 	private Country country;
 	
+	public State() {}
+	
 	public State(String name, Country country) {
 		this.name = name;
 		this.setCountry(country);

@@ -18,6 +18,8 @@ public class Company extends Person implements Serializable {
 	@Column
 	private String companyDocument;
 
+	public Company() {}
+	
 	public String getCompanyDocument() {
 		return companyDocument;
 	}

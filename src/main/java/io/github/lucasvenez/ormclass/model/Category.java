@@ -37,6 +37,8 @@ public class Category implements Serializable {
 			cascade = CascadeType.ALL)
 	private final List<Product> products = new ArrayList<Product>();
 
+	public Category() {}
+	
 	public Category(String name) {
 		this.name = name;
 	}
