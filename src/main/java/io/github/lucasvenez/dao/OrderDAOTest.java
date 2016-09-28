@@ -1,13 +1,8 @@
 package io.github.lucasvenez.dao;
 
-import static org.junit.Assert.assertTrue;
-
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Date;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import io.github.lucasvenez.ormclass.dao.OrderDAO;
 import io.github.lucasvenez.ormclass.model.Category;
@@ -21,35 +16,25 @@ import io.github.lucasvenez.ormclass.model.State;
 
 public class OrderDAOTest {
 
-	private Order order;
+	private Order order = new Order();
 	
 	private final OrderDAO dao = new OrderDAO();
 	
-	@Before
-	public void setUp() {
+	public void setUp(String nome, String cidade, String estado, String pais) {
 
 		/*
 		 * Creating country, state, and city
 		 */
 		City city = 
-			new City("Caraguatatuba", 
-				new State("São Paulo", 
-					new Country("Brazil")));
+			new City(cidade, 
+				new State(estado, 
+					new Country(pais)));
 		
-		/*
-		 * Creating person:
-		 * - Fullname: Lucas Venezian Povoa
-		 * - Birthdate: 01/02/1990
-		 * - City: Caraguatatuba
-		 */
 		Person person = new Person();
 		
-		person.setFullname("Lucas Venezian Povoa");
+		person.setFullname(nome);
 		
-		/*
-		 * Creating a date: 1990-02-01
-		 */
-		Date birthdate = java.sql.Date.valueOf(LocalDate.of(1990, Month.FEBRUARY, 1));
+		Date birthdate = java.sql.Date.valueOf(LocalDate.of(1995, Month.AUGUST, 9));
 		
 		person.setBirthdate(birthdate);
 		
@@ -91,22 +76,7 @@ public class OrderDAOTest {
 		 * Adding order items to order
 		 */
 		this.order.addOrderItems(oi1, oi2, oi3);
-	}
-	
-	@Test
-	public void orderTest() {
-		assertTrue(dao.persist(order));
-	}
-	
-	@Test
-	public void orderSearchByIntervalTest() {
-		
-		Date start = 
-			java.sql.Date.valueOf(
-				LocalDate.of(2016, Month.SEPTEMBER, 1));
-		
-		Date end = new Date();
-		
-		assertTrue(dao.findByInterval(start, end).size() > 0);
+                
+                dao.persist(order);
 	}
 }

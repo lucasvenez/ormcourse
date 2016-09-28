@@ -43,15 +43,17 @@ public class Person implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idCity", nullable = false)
 	private City city;
-
+        
+        @Column(name = "`orders`", nullable = false)
 	@OneToMany(
 		mappedBy = "person", 
 		targetEntity = Order.class, 
 		fetch = FetchType.LAZY, 
-		cascade = CascadeType.ALL)
-	private final List<Order> orders = new ArrayList<Order>();
+		cascade = CascadeType.ALL
+        )
+	private final List<Order> orders;
 
-	public Person() {}
+	public Person() {this.orders = new ArrayList();}
 	
 	public Integer getIdPerson() {
 		return idPerson;
