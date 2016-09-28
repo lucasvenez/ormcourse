@@ -39,7 +39,7 @@ public class Order implements Serializable {
 	@Column(name = "`time`", nullable = false)
 	@Temporal(TemporalType.TIME)
 	private Date time;
-
+        
 	@OneToMany(
 			mappedBy = "order", 
 			targetEntity = OrderItem.class, 
